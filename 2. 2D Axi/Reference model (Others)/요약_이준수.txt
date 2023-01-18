@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 HITU
 엄밀히 이야기하면, frequency domain code가 아니라 time domain에서 플고 fft하는 방식
 (1. model equation이 time domain 2. TDNL.m - Time-domain nonlinear solver 3. FFT command)
@@ -22,3 +23,29 @@ heat가 고려되므로 비교 시 동등한 비교가 아닐 것이다.
 spatial averaging : hydrophone의 영향
 2nd order는 35도까지 유효하고, 3rd order는 45도까지 유효
 mono-frequency만 가능
+=======
+HITU
+엄밀히 이야기하면, frequency domain code가 아니라 time domain에서 플고 fft하는 방식
+(1. model equation이 time domain 2. TDNL.m - Time-domain nonlinear solver 3. FFT command)
+* a high-order parabolic approximation of the axisymmetric Westervelt equation, 
+A.K.A.(also known as) the wide-angle Khokhlov-Zabolotkaya-Kuznetsov (WAKZK) equation, from the frequency-domain perspective.
+Westervelt와의 차이점
+2.1 Model equation
+
+one-way wave equation이 있는 것 같다
+scattering과 reflection은 고려되지 않는다.
+기존의 KZK는 20도에서만 유효한 반면, 해당 코드는 45도까지 정확하다.
+
+attenuation
+우리 코드는 별도로 온도 변화를 고려해주지 않아도 되는가?
+MATLAB enviroment, Frequency-domain representation, source pressure distribution (velocity x)
+Absorbing boundary conditions prevent spurious reflections from artificial boundaries of the computational domain
+
+heat가 고려되므로 비교 시 동등한 비교가 아닐 것이다.
+* focused source를 piston source처럼 만들 수 없을까? % The user could specify a custom source here [any complex function A=A(r)]. %A = ;
+* power가 아니라 velocity나 pressure 조건으로 바꿀순없을까? p0 = sqrt(2*Layer(1).rho*Layer(1).c*Tx.P/integral);
+* absorbing layer에 대한 설정은?
+spatial averaging : hydrophone의 영향
+2nd order는 35도까지 유효하고, 3rd order는 45도까지 유효
+mono-frequency만 가능
+>>>>>>> 87cf82985d1304c55247ac883e2677b8339ffc52
